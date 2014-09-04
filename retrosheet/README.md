@@ -1,5 +1,5 @@
-The End Result
-==============
+Retrosheet Event Database
+=========================
 
 After following the steps documented here you will have a PostgresSQL database with the Retrosheet play-by-play event data from the 1921 season to the 2013 season. The database performs reasonably well on my three-year-old Mac Book Pro.
 This is truly an amazing time to analyze baseball stats. I was really into baseball as a kid in the 80s and early 90s. It is remarkable how much more can be accomplished today with the advances in computing power, opensource software, and the Internet.
