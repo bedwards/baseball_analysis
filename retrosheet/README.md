@@ -1,3 +1,41 @@
+The End Result
+==============
+
+After following the steps documented here you will have a PostgresSQL database with the Retrosheet play-by-play event data from the 1921 season to the 2013 season. The database performs reasonably well on my three-year-old Mac Book Pro.
+This is truly an amazing time to analyze baseball stats. I was really into baseball as a kid in the 80s and early 90s. It is remarkable how much more can be accomplished today with the advances in computing power, opensource software, and the Internet.
+
+Here is a description of the data.
+
+* 83 MLB seasons
+* 97 columns, 10.8 million rows
+* 4.3 GB CSV file
+* 14 minutes - time it takes to load data from staging table to table with types, constraints, and additional columns (details below)
+* 7 seconds - time to count distinct years
+* 2 seconds - time to count number of home runs hit in the 80s (range of years)
+* 120 ms - time to count home runs in specific year
+
+Table sizes
+
+    table_name    | table_size | total_size
+    --------------+------------+------------
+    event_ingest  | 3426 MB    | 3426 MB
+    event         | 4971 MB    | 6209 MB
+
+Query to produce those results
+
+    =# select
+         table_name,
+         pg_size_pretty(pg_table_size(table_name)) as table_size,
+         pg_size_pretty(pg_total_relation_size(table_name)) as total_size
+       from (
+         select table_name
+         from information_schema.tables
+         where
+           table_schema = 'retrosheet'
+           and table_name like 'event%'
+       ) as q;
+
+
 Loading Retrosheet Events
 =========================
 
