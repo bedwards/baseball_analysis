@@ -10,7 +10,7 @@ Download and install the prerequisites that are external to this GitHub reposito
 3. If using a Mac, [install wine using homebrew](http://www.davidbaumgold.com/tutorials/wine-mac/).
 4. Familiarize yourself with the [descriptions of the event fields](http://www.retrosheet.org/datause.txt).
 5. Download [fields.csv](https://raw.githubusercontent.com/maxtoki/baseball_R/master/data/fields.csv).
-6. [pip install csvkit](http://csvkit.readthedocs.org/en/latest/index.html#).
+6. Install csvkit using [pip install csvkit](http://csvkit.readthedocs.org/en/latest/index.html#), from which the csvsql tool is used to generate SQL DDL from headers and data in CSV files.
 
 Prepare the CSV.
 
