@@ -48,11 +48,11 @@ Generate the create table statement for event_ingest.
     head -n1000 noheader.csv >> event_sample.csv
     csvsql -i postgresql --no-constraints event_sample.csv
 
-Edit the output changing all the field types 
+Edit the output changing all the field types to varchar.
 
-    copy event_ingest from 'noheader.csv' CSV;
+    copy event_ingest from 'noheader.csv' csv;
 
-Generate the create table statement for event_ingest and edit it (or use the one in [ddl.sql](ddl.sql).
+Generate the create table statement with constraints for the event table and edit it (or use the one in [ddl.sql](ddl.sql)).
 
     csvsql -i postgresql event_sample.csv
 
