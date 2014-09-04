@@ -44,17 +44,17 @@ Generate header.csv file from the fields table.
 
 Generate the create table statement for event_ingest.
 
-    cat header.csv > event_sample.csv
-    head -n1000 noheader.csv >> event_sample.csv
-    csvsql -i postgresql --no-constraints event_sample.csv
+    $ cat header.csv > event_sample.csv
+    $ head -n1000 noheader.csv >> event_sample.csv
+    $ csvsql -i postgresql --no-constraints event_sample.csv
 
 Edit the output changing all the field types to varchar.
 
-    copy event_ingest from 'noheader.csv' csv;
+    =# copy event_ingest from 'noheader.csv' csv;
 
 Generate the create table statement with constraints for the event table and edit it (or use the one in [ddl.sql](ddl.sql)).
 
-    csvsql -i postgresql event_sample.csv
+    $ csvsql -i postgresql event_sample.csv
 
 The event table has the following fields in addition to those found in event_ingest:
 
@@ -68,4 +68,9 @@ The event table has the following fields in addition to those found in event_ing
 * half_inning_id (game_id + inn_ct + bat_home_id)
 * runs - total runs scored by both teams prior to this event (away_score_ct + home_score_ct)
 * runs_scored - runs scored during this event (sum of batter and runner destination IDs that indicate crossing home plate)
+
+Create indexes on game_year and half_inning_id.
+
+    =# create index event_game_year_index on event(game_year);
+    =# create index event_game_half_inning_index on event(half_inning_id);
 
