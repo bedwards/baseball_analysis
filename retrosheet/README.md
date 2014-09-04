@@ -10,10 +10,7 @@ Here are the steps I used to load the Retrosheet play-by-play event data into a 
 5. Download [fields.csv](https://raw.githubusercontent.com/maxtoki/baseball_R/master/data/fields.csv).
 6. Install csvkit using [pip install csvkit](http://csvkit.readthedocs.org/en/latest/index.html#), from which the csvsql tool is used to generate SQL DDL from headers and data in CSV files.
 
-Next, prepare a CSV file with event data for all decades.
-
-1. Unzip the event files for all decades into a single directory.
-2. Transform the event files into a CSV file.
+Next, prepare a CSV file with event data for all decades. Unzip the event files for all decades into a single directory. Transform the event files into a CSV file.
 
     for filename in `ls ~/Downloads/eve_zip/*.EV*`
     do
@@ -40,7 +37,7 @@ Create and load the fields table.
 
 Generate header.csv file from the fields table.
 
-    =#  \t
+    =# \t
     Showing only tuples.
     =# \o header.csv
     =# select string_agg(header,',') from fields;
@@ -53,7 +50,9 @@ Generate the create table statement for event_ingest.
     head -n1000 noheader.csv >> event_sample.csv
     csvsql -i postgresql --no-constraints event_sample.csv
 
-copy event_ingest from 'noheader.csv' CSV;
+Edit the output changing all the field types 
+
+    copy event_ingest from 'noheader.csv' CSV;
 
 Generate the create table statement for event_ingest and edit it (or use the one in [ddl.sql](ddl.sql).
 
