@@ -1,7 +1,7 @@
 drop table if exists fields;
+drop table if exists event_cd_desc;
 drop table if exists event_ingest;
 drop table if exists event;
-drop table if exists event_cd_desc;
 
 create type hand_cd_type as enum('L', 'R');
 create type battedball_cd_type as enum('F', 'L', 'P', 'G');
