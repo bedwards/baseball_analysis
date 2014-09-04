@@ -18,9 +18,7 @@ Next, prepare a CSV file with event data for all decades. Unzip the event files 
       wine ~/bevent.exe -y $year -f 0-96 $filename >> noheader.csv
     done
 
-My strategy is to copy the CSV into Postgres using a staging table named "event_ingest" with all fields defined as varchars with no constraints. Then in a second step, select from event_ingest and insert into a table named "event". This strategy was more workable than debugging problems with copying from the CSV directly into the event table. Below I show the steps I used to create the DDL, but you can skip these steps by using the [DDL script](ddl.sql) in this repository.
-
-Create a schema for the retrosheet event data.
+My strategy is to copy the CSV into Postgres using a staging table named "event_ingest" with all fields defined as varchars with no constraints. Then in a second step, select from event_ingest and insert into a table named "event". This strategy was more workable than debugging problems with copying from the CSV directly into the event table. Below I show the steps I used to create the DDL, but you can skip these steps by using the [DDL script](ddl.sql) in this repository. Create a schema for the retrosheet event data.
 
     $ psql
     =# create schema retrosheet;
