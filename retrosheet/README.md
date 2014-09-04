@@ -85,6 +85,10 @@ Copy the data from the event_ingest table to the event table using [event.sql](e
 
     =# \i event.sql
 
+Load the event code descriptions which I created with information from [descriptions of the event fields](http://www.retrosheet.org/datause.txt)).
+
+    =# \i event_cd_desc.sql
+
 Gory Details of Creating DDL
 ============================
 
