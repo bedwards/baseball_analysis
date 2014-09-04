@@ -11,6 +11,18 @@ This work depends on [loading the Retrosheet play-by-play event data into a Post
 Backing Data
 ============
 
-A series of tables will be produced for human consumption and contemplation, but first you must create the backing table. The retrosheet event table is not sufficient. This new backing table has additional information about the half inning in which the event occurred. The new columns with half-inning information are
+A series of tables will be produced for human consumption and contemplation, but first you must create the backing table. The retrosheet event table is not sufficient. This new backing table has additional information encoding the game state before and after the event, as well as providing context about the half inning in which the event occurred. The new columns are state, new_state, and runs_roi.
 
-* 
+state and new_state
+-------------------
+
+Both are strings encoding the state of runners on base and number of outs.
+
+    <1B occupied flag><2B occupied flag><3B occupied flag><out count>
+
+For example, if there are runners on 2nd and 3rd with 2 outs the state string would be '0112'. state is the state before the event. new_state is the state after the event.
+
+runs_roi
+------------------------
+
+runs_roi represents the runs scored directly as a result of this event and the actual runs scored in the remainder of the half-inning in which this event occurred.
