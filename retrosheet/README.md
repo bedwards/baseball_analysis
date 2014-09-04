@@ -74,3 +74,4 @@ Create indexes on game_year and half_inning_id.
     =# create index event_game_year_index on event(game_year);
     =# create index event_game_half_inning_index on event(half_inning_id);
 
+Copy the data from the event_ingest table to the event table using [event.sql](event.sql).
