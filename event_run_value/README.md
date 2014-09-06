@@ -7,16 +7,41 @@ This work is inspired by Chapter 1 of [The Book](http://www.amazon.com/gp/produc
 
 I was able to reproduce various tables from "The Book". Here is Table 1. Run Expectancy, By the 24 Base/Out States, 1999-2002.
 
-    1B  | 2B | 3B | 0 Outs | 1 Out | 2 Outs
+    1B | 2B | 3B | 0 Outs | 1 Out | 2 Outs
     ----+----+----+--------+-------+--------
-     -- | -- | -- |  0.546 | 0.292 |  0.115
-     1B | -- | -- |  0.938 | 0.563 |  0.247
-     -- | 2B | -- |  1.176 | 0.711 |  0.339
-     -- | -- | 3B |  1.475 | 0.976 |  0.382
-     1B | 2B | -- |  1.552 | 0.955 |  0.457
-     1B | -- | 3B |  1.886 | 1.227 |  0.526
-     -- | 2B | 3B |  2.043 | 1.452 |  0.626
-     1B | 2B | 3B |  2.400 | 1.622 |  0.795
+     -- | -- | -- |  0.555 | 0.297 |  0.117
+     1B | -- | -- |  0.953 | 0.572 |  0.251
+     -- | 2B | -- |  1.189 | 0.724 |  0.344
+     -- | -- | 3B |  1.484 | 0.983 |  0.387
+     1B | 2B | -- |  1.571 | 0.971 |  0.465
+     1B | -- | 3B |  1.902 | 1.240 |  0.536
+     -- | 2B | 3B |  2.052 | 1.467 |  0.634
+     1B | 2B | 3B |  2.416 | 1.650 |  0.813
+
+Recreation of "The Book"'s Table 4. Runs To End of Inning, By Event
+
+    description             | abbreviation |   n    | Runs to End of Inning | Average Runs | Starting RE | Run Value
+    ------------------------+--------------+--------+-----------------------+--------------+-------------+-----------
+     home run               | hr           |  21027 |                 40839 |        1.942 |       0.533 |     1.409
+     triple                 | 3b           |   3644 |                  5887 |        1.616 |       0.552 |     1.064
+     double                 | 2b           |  34128 |                 44738 |        1.311 |       0.547 |     0.764
+     error                  | e            |   7407 |                  8587 |        1.159 |       0.600 |     0.559
+     interference           | intr         |     60 |                    65 |        1.083 |       0.654 |     0.429
+     single                 | 1b           | 112727 |                115913 |        1.028 |       0.553 |     0.475
+     passed ball            | pb           |   1166 |                  1191 |        1.021 |       0.739 |     0.282
+     wild pitch             | wp           |   5312 |                  5300 |        0.998 |       0.714 |     0.284
+     hit by pitch           | hbp          |   6558 |                  6354 |        0.969 |       0.584 |     0.385
+     balk                   | bk           |    625 |                   596 |        0.954 |       0.714 |     0.240
+     fielders choice        | fc           |   1765 |                  1518 |        0.860 |       1.175 |    -0.315
+     walk                   | bb           |  60572 |                 51430 |        0.849 |       0.519 |     0.330
+     intentional walk       | ibb          |   4634 |                  3915 |        0.845 |       0.742 |     0.103
+     stolen base            | sb           |  10259 |                  8065 |        0.786 |       0.596 |     0.190
+     defensive indifference | di           |    412 |                   212 |        0.515 |       0.454 |     0.061
+     pickoff                | pk           |   2268 |                   951 |        0.419 |       0.671 |    -0.252
+     generic out            | out          | 352007 |                 87742 |        0.249 |       0.544 |    -0.295
+     strikeout              | k            | 120614 |                 25056 |        0.208 |       0.518 |    -0.310
+     caught stealing        | cs           |   3734 |                   616 |        0.165 |       0.621 |    -0.456
+     other advance          | oa           |    211 |                    29 |        0.137 |       0.708 |    -0.571
 
 Backing Data
 ============
