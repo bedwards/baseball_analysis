@@ -7,7 +7,7 @@ This work is inspired by Chapter 1 of [The Book](http://www.amazon.com/gp/produc
 
 I was able to reproduce various tables from "The Book". Here is Table 1. Run Expectancy, By the 24 Base/Out States, 1999-2002.
 
-    1B | 2B | 3B | 0 Outs | 1 Out | 2 Outs
+    1B  | 2B | 3B | 0 Outs | 1 Out | 2 Outs
     ----+----+----+--------+-------+--------
      -- | -- | -- |  0.555 | 0.297 |  0.117
      1B | -- | -- |  0.953 | 0.572 |  0.251
