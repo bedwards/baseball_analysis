@@ -72,6 +72,8 @@ Recreation of "The Book"'s Table 5. Runs To End Of Inning, By Base/Out State, Fo
      1B | 2B | 3B |    1 |  230 |  969 |    4.213 |    1.650 |     2.563
      1B | 2B | 3B |    2 |  247 | 1019 |    4.126 |    0.813 |     3.313
 
+The authors of the book point out that we can reason that home runs hit with no baserunners are worth exactly one run. They propose a more precise calculation of run value by taking the average run expectancy of the base/out states before and after each event type. This guarantees the bases-empty home runs will be valued at exactly one run. With a home run we know the exact game state after the event, but with other event types multiple states are possible. For instance a single might advance a base runner on first to second, third or (less likely) home.
+
 Recreation of "The Book"'s Table 6. Run Value of HR, By Base/Out State [hr_state_reoi_2.sql](hr_state_reoi_2.sql)
 
     1B  | 2B | 3B | Outs |  HR  | Original | Starting RE | Ending RE | Run Value
@@ -131,4 +133,6 @@ Backing Data
 
 This work depends on [loading the Retrosheet play-by-play event data into a PostgreSQL database](/retrosheet/).
 
-To produce the series of tables show above you must create the backing table (event_run). The retrosheet event table is not sufficient. This new backing table has additional information encoding the game state before and after the event, as well as providing context about the half inning in which the event occurred. The new columns are runs_eoi (runs through end of inning), and four columns for the base/out state before and after the event (state_* and new_state_*). runs_eoi represents the runs scored directly as a result of this event and the actual runs scored in the remainder of the half-inning in which this event occurred. [event_run.sql](event_run.sql) is the sql script used to create the event_run table.
+To produce the series of tables show above you must create the backing table (event_run). The retrosheet event table is not sufficient. This new backing table has additional information encoding the game state before and after the event, as well as providing context about the half inning in which the event occurred. The new columns are runs_eoi (runs through end of inning), and four columns for the base/out state before and after the event (state_* and new_state_*). runs_eoi represents the runs scored directly as a result of this event and the actual runs scored in the remainder of the half-inning in which this event occurred. [event_run.sql](event_run.sql) is the sql script used to create the event_run table. As written this calculates the additional info for the seasons from 1999 to 2013. On my machine this takes about four minutes.
+
+The next backing table contains run expectancies for 1999-2002. This is similar to the run expectancy matrix (the matrix is based on this table), but distinct base/out states comprise each row (as opposed to the matrix that has out counts as columns). [run_expectancy.sql](run_expectancy.sql) is the script to create this table.
