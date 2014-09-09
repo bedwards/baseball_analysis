@@ -101,23 +101,34 @@ Recreation of "The Book"'s Table 6. Run Value of HR, By Base/Out State
      1B | 2B | 3B |    1 |  230 |    2.563 |       1.650 |     4.297 |     2.647
      1B | 2B | 3B |    2 |  247 |    3.313 |       0.813 |     4.117 |     3.304
 
+Recreation of "The Book"'s Table 7. Run Values By Event
+
+    Event                   | Run Value
+    ------------------------+-----------
+     home run               |     1.397
+     triple                 |     1.071
+     double                 |     0.779
+     error                  |     0.521
+     single                 |     0.478
+     interference           |     0.392
+     hit by pitch           |     0.351
+     walk                   |     0.323
+     passed ball            |     0.268
+     wild pitch             |     0.266
+     balk                   |     0.265
+     intentional walk       |     0.179
+     stolen base            |     0.178
+     defensive indifference |     0.118
+     pickoff                |    -0.268
+     generic out            |    -0.281
+     fielders choice        |    -0.300
+     strikeout              |    -0.308
+     caught stealing        |    -0.572
+     other advance          |    -0.663
+
 Backing Data
 ============
 
 This work depends on [loading the Retrosheet play-by-play event data into a PostgreSQL database](/retrosheet/).
 
-A series of tables will be produced for human consumption and contemplation, but first you must create the backing table. The retrosheet event table is not sufficient. This new backing table has additional information encoding the game state before and after the event, as well as providing context about the half inning in which the event occurred. The new columns are state, new_state, and runs_roi.
-
-state and new_state
--------------------
-
-Both are strings encoding the state of runners on base and number of outs.
-
-    <1B occupied flag><2B occupied flag><3B occupied flag><out count>
-
-For example, if there are runners on 2nd and 3rd with 2 outs the state string would be '0112'. state is the state before the event. new_state is the state after the event.
-
-runs_roi
-------------------------
-
-runs_roi represents the runs scored directly as a result of this event and the actual runs scored in the remainder of the half-inning in which this event occurred.
+To produce the series of tables show above you must create the backing table (event_run). The retrosheet event table is not sufficient. This new backing table has additional information encoding the game state before and after the event, as well as providing context about the half inning in which the event occurred. The new columns are runs_eoi (runs through end of inning), and four columns for the base/out state before and after the event (state_* and new_state_*). runs_eoi represents the runs scored directly as a result of this event and the actual runs scored in the remainder of the half-inning in which this event occurred. [event_run.sql](event_run.sql) is the sql script used to create the event_run table.
