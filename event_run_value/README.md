@@ -5,7 +5,7 @@ This work allows for the analysis of the value of various baseball events. Examp
 
 This work is inspired by Chapter 1 of [The Book](http://www.amazon.com/gp/product/B00GW6A89Y) and Chapter 5 of [Analyzing Baseball Data with R](http://www.amazon.com/Analyzing-Baseball-Data-Chapman-Hall-ebook/dp/B00GBC36S4/ref=sr_sp-atf_title_1_1?s=digital-text&ie=UTF8&qid=1409819843&sr=1-1&keywords=Analyzing+Baseball+Data+with+R).
 
-I was able to reproduce various tables from "The Book". Here is Table 1. Run Expectancy, By the 24 Base/Out States, 1999-2002.
+I was able to reproduce various tables from "The Book". Here is Table 1. Run Expectancy, By the 24 Base/Out States, 1999-2002 [matrix.sql](matrix.sql)
 
     1B  | 2B | 3B | 0 Outs | 1 Out | 2 Outs
     ----+----+----+--------+-------+--------
@@ -18,7 +18,7 @@ I was able to reproduce various tables from "The Book". Here is Table 1. Run Exp
      -- | 2B | 3B |  2.052 | 1.467 |  0.634
      1B | 2B | 3B |  2.416 | 1.650 |  0.813
 
-Recreation of "The Book"'s Table 4. Runs To End of Inning, By Event
+Recreation of "The Book"'s Table 4. Runs To End of Inning, By Event [reoi_by_event_type.sql](reoi_by_event_type.sql)
 
     Event                   |   N    | Runs to End of Inning | Average Runs | Starting RE | Run Value
     ------------------------+--------+-----------------------+--------------+-------------+-----------
@@ -43,7 +43,7 @@ Recreation of "The Book"'s Table 4. Runs To End of Inning, By Event
      caught stealing        |   3734 |                   616 |        0.165 |       0.621 |    -0.456
      other advance          |    211 |                    29 |        0.137 |       0.708 |    -0.571
 
-Recreation of "The Book"'s Table 5. Runs To End Of Inning, By Base/Out State, For HR
+Recreation of "The Book"'s Table 5. Runs To End Of Inning, By Base/Out State, For HR [hr_state_reoi.sql](hr_state_reoi.sql)
 
     1B  | 2B | 3B | Outs |  HR  | REOI | Avg REOI | Start RE | Run Value
     ----+----+----+------+------+------+----------+----------+-----------
@@ -72,7 +72,7 @@ Recreation of "The Book"'s Table 5. Runs To End Of Inning, By Base/Out State, Fo
      1B | 2B | 3B |    1 |  230 |  969 |    4.213 |    1.650 |     2.563
      1B | 2B | 3B |    2 |  247 | 1019 |    4.126 |    0.813 |     3.313
 
-Recreation of "The Book"'s Table 6. Run Value of HR, By Base/Out State
+Recreation of "The Book"'s Table 6. Run Value of HR, By Base/Out State [hr_state_reoi_2.sql](hr_state_reoi_2.sql)
 
     1B  | 2B | 3B | Outs |  HR  | Original | Starting RE | Ending RE | Run Value
     ----+----+----+------+------+----------+-------------+-----------+-----------
@@ -101,7 +101,7 @@ Recreation of "The Book"'s Table 6. Run Value of HR, By Base/Out State
      1B | 2B | 3B |    1 |  230 |    2.563 |       1.650 |     4.297 |     2.647
      1B | 2B | 3B |    2 |  247 |    3.313 |       0.813 |     4.117 |     3.304
 
-Recreation of "The Book"'s Table 7. Run Values By Event
+Recreation of "The Book"'s Table 7. Run Values By Event [event_run_value.sql](event_run_value.sql)
 
     Event                   | Run Value
     ------------------------+-----------
